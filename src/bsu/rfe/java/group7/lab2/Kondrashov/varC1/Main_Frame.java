@@ -58,4 +58,38 @@ public class Main_Frame extends JFrame {
         return pow((cos(exp(y)) + log((1+y)*(1+y)) + sqrt(exp(cos(x))+sin(PI*z)*sin(PI*z)) + sqrt(1/x) + cos(y*y)), sin(z));
     }
 
+    // радиокнопки для запоминания значения
+    private void addMemoryRadioButton (String buttonName, final int memoryId)	{
+        JRadioButton button = new JRadioButton(buttonName);
+
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event)	{
+                Main_Frame.this.memoryId = memoryId;
+                if (memoryId == 1)	memoryTextField.setText(mem1.toString());
+                if (memoryId == 2)	memoryTextField.setText(mem2.toString());
+                if (memoryId == 3)	memoryTextField.setText(mem3.toString());
+            }
+        });
+
+        radioMemoryButtons.add(button);
+        hBoxMemoryType.add(button);
+    }
+    // радиокнопки для формул 1,2
+    private void addRadioButton(String name, final int formula_number)
+    {
+        JRadioButton button = new JRadioButton(name);
+        button.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent)
+            {
+                Main_Frame.this.formula_number = formula_number;
+                if (formula_number == 1)	image.setIcon(new ImageIcon(Main_Frame.class.getResource("formula_1.bmp")));
+                if (formula_number == 2) image.setIcon(new ImageIcon(Main_Frame.class.getResource("formula_2.bmp")));
+            }
+        });
+        radioButtons.add(button);
+        formula_type.add(button);
+    }
+
 }
