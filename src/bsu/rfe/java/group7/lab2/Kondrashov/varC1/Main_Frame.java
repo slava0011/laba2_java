@@ -29,4 +29,33 @@ public class Main_Frame extends JFrame {
     private Double mem2 = new Double(0);
     private Double mem3 = new Double(0);
 
+    //вычисление функций
+    public Double formula1(Double x, Double y, Double z)
+    {
+        if (y<=0)	{
+            JOptionPane.showMessageDialog(Main_Frame.this,
+                    "y не может быть меньше нуля", "" +
+                            "Ошибка ввода", JOptionPane.WARNING_MESSAGE);
+            return 0.0;
+        }
+
+        return  (sin(log(y)+sin(PI*y*y)) * pow(x*x+sin(z)+pow(E,cos(z)),0.25));
+    }
+    public Double formula2(Double x, Double y, Double z)
+    {
+        if (y == -1)	{
+            JOptionPane.showMessageDialog(Main_Frame.this,
+                    " y не должен быть равен -1", "" +
+                            "Ошибка ввода", JOptionPane.WARNING_MESSAGE);
+            return 0.0;
+        }
+        if ((cos(exp(y)) + exp(y*y) + sqrt(1/x)) < 0){
+            JOptionPane.showMessageDialog(Main_Frame.this,
+                    "Выражение (cos(exp(y)) + exp(y*y) + sqrt(1/x) должно быть больше 0", "" +
+                            "Ошибка ввода", JOptionPane.WARNING_MESSAGE);
+            return 0.0;
+        }
+        return pow((cos(exp(y)) + log((1+y)*(1+y)) + sqrt(exp(cos(x))+sin(PI*z)*sin(PI*z)) + sqrt(1/x) + cos(y*y)), sin(z));
+    }
+
 }
